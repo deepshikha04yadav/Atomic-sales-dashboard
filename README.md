@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Atomic-sales-dashboard 
+
+A simple sales dashboard built with **Next.js (App Router, v15)**, **TypeScript**, **Tailwind CSS**, and **Recharts**.  
+It loads a sales CSV dataset (as described in the original dataset), aggregates sales by year/month, and visualizes it with interactive charts. The code follows an **atomic component structure** (atoms → molecules → organisms) for clean layout and easy extension.
+
+---
+
+## Features
+
+- Load sales data from a CSV file (with specified columns: `Product_ID`, `Sale_Date`, `Sales_Amount`, etc.)  
+- Aggregate sales by year (based on `Sale_Date`)  
+- Display interactive chart (bar / line / pie) using Recharts  
+- Simple dashboard UI with filters:  
+  - Year selector  
+  - Minimum-sales threshold filter  
+  - Chart type selector (line / bar / pie)  
+- Atomic architecture: components separated into **atoms**, **molecules**, **organisms** for modularity and reusability  
+- Easy to extend — can integrate real APIs, more filter criteria, more charts, etc.
+
+---
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)  
+- **Language**: TypeScript  
+- **Styling**: Tailwind CSS  
+- **Charts**: Recharts  
+- **CSV parsing**: `csv-parse` (synchronous)  
+- **CSS structure**: Atomic design (atoms / molecules / organisms)  
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
+- Node.js (v18 or newer recommended)  
+- npm or Yarn  
+
+### Installation
+
+```
+# Clone the repo
+git clone https://github.com/deepshikha04yadav/Atomic-sales-dashboard.git
+cd Atomic-sales-dashboard
+
+# Install dependencies
+npm install
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Project Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Place your sales CSV file (with proper columns as discussed) under:
+```
+public/data/sales.csv
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. Ensure the CSV uses the correct column names:
+```
+Product_ID, Sale_Date, Sales_Rep, Region, Sales_Amount, Quantity_Sold,
+Product_Category, Unit_Cost, Unit_Price, Customer_Type, Discount,
+Payment_Method, Sales_Channel, Region_and_Sales_Rep
+```
